@@ -6,7 +6,37 @@
 <title>ROD im. Stefana Żeromskiego – Ostrowiec Świętokrzyski</title>
 
 <style>
+.oplaty-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+}
 
+.oplaty-table th,
+.oplaty-table td {
+    padding: 14px;
+    text-align: left;
+}
+
+.oplaty-table th {
+    background: var(--bg-light);
+    color: var(--accent);
+}
+
+.oplaty-table tr {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.oplaty-table tr:last-child {
+    border-bottom: none;
+}
+
+.oplaty-table tr:hover {
+    background: rgba(255,255,255,0.05);
+}
 /* ————————————————————————————— */
 /*   KOLORY SZATY GRAFICZNEJ       */
 /* ————————————————————————————— */
@@ -576,16 +606,28 @@ setInterval(updateFOMO, 4000);
 <!-- ✅ OPŁATY                    -->
 <!-- ————————————————————————————— -->
 
-<div id="oplaty" class="page">
-<section>
-<h2>Opłaty 2025</h2>
-
-<p>• Ryczałt za wodę (brak stanu licznika) – 150 zł<br>
-• Opłata dla nowego działkowca – 300 zł<br>
-• Opłata inwestycyjna jednorazowa – 1200 zł</p>
-
-</section>
-</div>
+<table class="oplaty-table">
+    <thead>
+        <tr>
+            <th>Rodzaj opłaty</th>
+            <th>Kwota</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ryczałt za wodę (brak stanu licznika)</td>
+            <td>150 zł</td>
+        </tr>
+        <tr>
+            <td>Opłata dla nowego działkowca</td>
+            <td>300 zł</td>
+        </tr>
+        <tr>
+            <td>Opłata inwestycyjna jednorazowa</td>
+            <td>1200 zł</td>
+        </tr>
+    </tbody>
+</table>
 
 <!-- ————————————————————————————— -->
 <!-- ✅ GALERIA                  -->
