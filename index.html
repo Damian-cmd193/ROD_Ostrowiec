@@ -271,6 +271,15 @@ footer {
     background: var(--accent);
     color: #1a1a1a;
 }
+   {
+    margin-top: 30px; /* odsunięcie zakładek od nagłówka */
+}
+
+/* Aktywacja treści zakładek */
+#uchw2026:checked ~ #uchwaly2026,
+#uchw2025:checked ~ #uchwaly2025 {
+    display: block;
+}
 </style>
 
 <script>
@@ -427,35 +436,65 @@ function showPage(id) {
 <div id="uchwaly" class="page">
 <section>
    <!-- ✅ Uchwały -->
+    <div id="uchwaly" class="page">
+<section>
     <h2>Uchwały ROD</h2>
-    <div class="tabs">
 
-        <!-- Zakładka 2026 -->
-        <input type="radio" name="uchwaly_tab" id="uchw2026" checked>
-        <label for="uchw2026">2026</label>
+    <div class="uchwaly-wrapper">
 
-        <!-- Zakładka 2025 -->
-        <input type="radio" name="uchwaly_tab" id="uchw2025">
-        <label for="uchw2025">2025</label>
+        <div class="tabs">
 
-        <!-- Treść 2026 -->
-        <div id="uchwaly2026" class="tab-content">
-            <div class="pdf-grid">
+            <!-- Zakładka 2026 -->
+            <input type="radio" name="uchwaly_tab" id="uchw2026" checked>
+            <label for="uchw2026">2026</label>
 
-                <div class="pdf-card">
-                    <img src="img/pdf-icon.png" alt="">
-                    <h3>Uchwała nr 1 / 2026</h3>
-                    <a class="pdf-btn" href="pdf/uchwala1-2026.pdf" target="_blank">Otwórz PDF</a>
+            <!-- Zakładka 2025 -->
+            <input type="radio" name="uchwaly_tab" id="uchw2025">
+            <label for="uchw2025">2025</label>
+
+            <!-- Treść 2026 -->
+            <div id="uchwaly2026" class="tab-content">
+                <div class="pdf-grid">
+
+                    <div class="pdf-card">
+                        <img src="img/pdf-icon.png">
+                        <h3>Uchwała nr 1 / 2026</h3>
+                        <a class="pdf-btn" href="pdf/uchwala1-2026.pdf" target="_blank">Otwórz PDF</a>
+                    </div>
+
+                    <div class="pdf-card">
+                        <img src="img/pdf-icon.png">
+                        <h3>Uchwała nr 2 / 2026</h3>
+                        <a class="pdf-btn" href="pdf/uchwala2-2026.pdf" target="_blank">Otwórz PDF</a>
+                    </div>
+
                 </div>
-
-                <div class="pdf-card">
-                    <img src="img/pdf-icon.png" alt="">
-                    <h3>Uchwała nr 2 / 2026</h3>
-                    <a class="pdf-btn" href="pdf/uchwala2-2026.pdf" target="_blank">Otwórz PDF</a>
-                </div>
-
             </div>
+
+            <!-- Treść 2025 -->
+            <div id="uchwaly2025" class="tab-content">
+                <div class="pdf-grid">
+
+                    <div class="pdf-card">
+                        <img src="img/pdf-icon.png">
+                        <h3>Uchwała nr 1 / 2025</h3>
+                        <a class="pdf-btn" href="pdf/uchwala1-2025.pdf" target="_blank">Otwórz PDF</a>
+                    </div>
+
+                    <div class="pdf-card">
+                        <img src="img/pdf-icon.png">
+                        <h3>Uchwała nr 2 / 2025</h3>
+                        <a class="pdf-btn" href="pdf/uchwala2-2025.pdf" target="_blank">Otwórz PDF</a>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+
+    </div>
+</section>
+</div>
 
         <!-- Treść 2025 -->
         <div id="uchwaly2025" class="tab-content">
