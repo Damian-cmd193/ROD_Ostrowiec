@@ -11,76 +11,115 @@
 <header>
     <nav>
         <ul>
-            <li><a href="#">Aktualności</a></li>
-            <li><a href="#">Dokumenty</a></li>
-            <li><a href="#">Wydarzenia</a></li>
-            <li><a href="#">Opłaty</a></li>
-            <li><a href="#">Galeria</a></li>
-            <li><a href="#">Kontakt</a></li>
+            <li><a href="#aktualnosci">Aktualności</a></li>
+            <li><a href="#dokumenty">Dokumenty</a></li>
+            <li><a href="#wydarzenia">Wydarzenia</a></li>
+            <li><a href="#oplata">Opłaty</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </nav>
 </header>
 
 <section class="hero">
     <h1>Rodzinny Ogród Działkowy<br>im. Stefana Żeromskiego</h1>
-    <h2>w Ostrowcu Świętokrzyskim</h2>
-    <p>
-        ROD im. Stefana Żeromskiego to miejsce wypoczynku, rekreacji i pasji ogrodniczej mieszkańców.
-        Od lat budujemy zieloną przestrzeń przyjazną naturze i lokalnej społeczności.
-    </p>
+    <h2>Ostrowiec Świętokrzyski</h2>
+    <p>ROD im. Stefana Żeromskiego to zielona przestrzeń wypoczynku, ogrodniczej pasji
+    oraz wspólnoty mieszkańców. Dbamy o naturę i o siebie nawzajem.</p>
 
     <div class="hero-img"></div>
 </section>
 
-<section class="news">
+<section id="aktualnosci" class="section">
     <h2>Aktualności</h2>
 
-    <div class="news-grid">
-        <div class="news-item">
-            <img src="img/aktualnosci1.jpg" alt="Przegląd działek">
+    <div class="grid">
+        <div class="card">
+            <img src="img/aktualnosci.jpg">
             <h3>Przegląd działek</h3>
             <p class="date">dd.mm.rrrr</p>
         </div>
 
-        <div class="news-item">
-            <img src="img/oplata2024.jpg" alt="Opłaty 2024">
+        <div class="card">
+            <img src="img/oplata.jpg">
             <h3>Opłaty na rok 2024</h3>
             <p class="date">dd.mm.rrrr</p>
         </div>
 
-        <div class="news-item">
-            <img src="img/wiosenny_dzien.jpg" alt="Wiosenny dzień społeczny">
+        <div class="card">
+            <img src="img/wydarzenia.jpg">
             <h3>Wiosenny dzień społeczny</h3>
             <p class="date">dd.mm.rrrr</p>
         </div>
     </div>
 </section>
 
-<section class="shortcuts">
-    <a href="#" class="button">Dokumenty ROD</a>
-    <a href="#" class="button">Opłaty i terminy</a>
-    <a href="#" class="button">Galeria</a>
-    <a href="#" class="button wide">Informacje dla nowych działkowców</a>
+<section id="dokumenty" class="section">
+    <h2>Dokumenty</h2>
+    <div class="icon-card">
+        <img src="img/dokumenty.jpg">
+        <p>Regulaminy, uchwały, dokumenty ROD</p>
+    </div>
 </section>
 
-<section class="events">
+<section id="oplata" class="section">
+    <h2>Opłaty</h2>
+    <div class="icon-card">
+        <img src="img/oplata.jpg">
+        <p>Obowiązujące opłaty i numery kont</p>
+    </div>
+</section>
+
+<section id="wydarzenia" class="section">
     <h2>Wydarzenia</h2>
-    <p>Zobacz nadchodzące i minione wydarzenia ROD: zebrania, prace społeczne, pikniki i inne inicjatywy.</p>
+    <div class="icon-card">
+        <img src="img/wydarzenia.jpg">
+        <p>Prace społeczne, zebrania, pikniki, ogłoszenia</p>
+    </div>
 </section>
 
-<footer>
+<section id="galeria" class="section">
+    <h2>Galeria</h2>
+
+    <div class="tabs">
+        <input type="radio" name="tab" id="tab2026" checked>
+        <label for="tab2026">2026</label>
+
+        <input type="radio" name="tab" id="tab2025">
+        <label for="tab2025">2025</label>
+
+        <input type="radio" name="tab" id="tab2024">
+        <label for="tab2024">2024</label>
+
+        <div class="tab-content" id="content2026">
+            <img src="img/galeria2026.jpg">
+        </div>
+
+        <div class="tab-content" id="content2025">
+            <img src="img/galeria2025.jpg">
+        </div>
+
+        <div class="tab-content" id="content2024">
+            <img src="img/galeria2024.jpg">
+        </div>
+    </div>
+</section>
+
+<footer id="kontakt">
     <h2>Kontakt</h2>
-    <p><strong>Zarząd ROD im. Stefana Żeromskiego</strong><br>
-    Ostrowiec Świętokrzyski</p>
+
+    <img src="img/kontakt.jpg" class="footer-icon">
+
+    <p><strong>Zarząd ROD im. Stefana Żeromskiego</strong><br>Ostrowiec Świętokrzyski</p>
 
     <p>
-        📞 Telefon: (tu wpisz)<br>
-        ✉️ E-mail: (tu wpisz)<br>
-        🏡 Adres ogrodu: (tu wpisz)<br>
-        🕒 Dyżury zarządu: (tu wpisz)
+        📞 Telefon: (wpisać)<br>
+        ✉️ E-mail: (wpisać)<br>
+        🏡 Adres: (wpisać)<br>
+        🕒 Dyżury zarządu: (wpisać)
     </p>
 
-    <p class="copyright">© 2026 ROD im. Stefana Żeromskiego</p>
+    <p class="copy">© 2026 ROD im. Stefana Żeromskiego</p>
 </footer>
 
 </body>
