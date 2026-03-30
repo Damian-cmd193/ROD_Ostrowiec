@@ -407,6 +407,12 @@ html {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
+    function toggleFAQ(el) {
+    document.querySelectorAll('.faq-item').forEach(item => {
+        if(item !== el) item.classList.remove('active');
+    });
+    el.classList.toggle('active');
+}
 </style>
 
 <script>
@@ -449,6 +455,7 @@ setInterval(updateFOMO, 4000);
             <li><a onclick="showPage('galeria')">Galeria</a></li>
             <li><a onclick="showPage('ogłoszenia')">Ogłoszenia</a></li>
             <li><a onclick="showPage('kontakt')">Kontakt</a></li>
+            <li><a onclick="showPage('faq')">FAQ</a></li>
         </ul>
     </nav>
 </header>
@@ -696,6 +703,44 @@ setInterval(updateFOMO, 4000);
         <img class="gallery-img" src="img/galeria2024.jpg">
     </div>
 
+</div>
+
+</section>
+</div>
+
+    <div id="faq" class="page">
+<section>
+
+<h2>Najczęściej zadawane pytania (FAQ)</h2>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">Jak zostać działkowcem?</div>
+    <div class="faq-answer">
+        Należy złożyć wniosek do zarządu ROD oraz uiścić opłatę wpisową.
+    </div>
+</div>
+  <!-- ————————————————————————————— -->
+<!-- ✅ FAQ                 -->
+<!-- ————————————————————————————— -->
+<div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">Ile wynoszą roczne opłaty?</div>
+    <div class="faq-answer">
+        Opłaty zależą od wielkości działki i uchwał zarządu. Szczegóły znajdziesz w zakładce „Opłaty”.
+    </div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">Czy można mieszkać na działce?</div>
+    <div class="faq-answer">
+        Nie. Działka ROD służy wyłącznie do celów rekreacyjnych.
+    </div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+    <div class="faq-question">Czy można mieć zwierzęta?</div>
+    <div class="faq-answer">
+        Tak, ale muszą być pod kontrolą właściciela i nie mogą przeszkadzać innym działkowcom.
+    </div>
 </div>
 
 </section>
