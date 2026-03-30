@@ -319,7 +319,56 @@ img.loaded {
 html {
     scroll-behavior: smooth;
 }
+/* ---------------------------------------------------
+   UCHWAŁY – poprawiony wygląd zakładek
+----------------------------------------------------- */
 
+.uchwaly-wrapper {
+    background: var(--bg-light);
+    padding: 25px;
+    border-radius: 14px;
+    margin-top: 40px; /* Odstęp od nagłówka */
+}
+
+.tabs {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.tabs label {
+    display: inline-block;
+    padding: 10px 22px;
+    background: var(--card);
+    color: var(--text-main);
+    border-radius: 10px 10px 0 0;
+    margin-right: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Aktywna zakładka */
+.tabs input:checked + label {
+    background: var(--bg-light);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Treści zakładek */
+.tab-content {
+    background: var(--card);
+    border-radius: 0 12px 12px 12px;
+    padding: 20px;
+    margin-top: -5px;
+    display: none;
+    animation: fadeUch 0.3s ease;
+}
+
+/* Animacja wejścia */
+@keyframes fadeUch {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 </style>
 
 <script>
@@ -442,64 +491,55 @@ function showPage(id) {
 
 <div id="uchwaly" class="page">
 <section>
-<h2>Uchwały ROD</h2>
+    <h2>Uchwały ROD</h2>
 
-<div class="uchwaly-wrapper">
+    <div class="uchwaly-wrapper">
 
-<div class="tabs">
+        <div class="tabs">
 
-    <!-- LATA -->
-    <input type="radio" id="uchw2026" name="uchw" checked>
-    <label for="uchw2026">2026</label>
+            <!-- Zakładki -->
+            <input type="radio" name="uchw" id="uchw2026" checked>
+            <label for="uchw2026">2026</label>
 
-    <input type="radio" id="uchw2025" name="uchw">
-    <label for="uchw2025">2025</label>
+            <input type="radio" name="uchw" id="uchw2025">
+            <label for="uchw2025">2025</label>
 
-    <!-- 2026 -->
-    <div id="uchwaly2026" class="tab-content">
+            <!-- Treści zakładek -->
+            <div id="uchwaly2026" class="tab-content">
+                <div class="pdf-grid">
+                    <div class="pdf-card">
+                        <img src="img/pdf-icon.png">
+                        <h3>Uchwała nr 1 / 2026</h3>
+                        <a href="pdf/uchwala1-2026.pdf" class="pdf-btn" target="_blank">Otwórz PDF</a>
+                    </div>
 
-        <div class="pdf-grid">
-
-            <div class="pdf-card">
-                <img src="img/pdf-icon.png">
-                <h3>Uchwała nr 1 / 2026</h3>
-                <a class="pdf-btn" href="pdf/uchwala1-2026.pdf" target="_blank">Otwórz PDF</a>
+                    <div class="pdf-card">
+                        <img src="img/pdf-icon.png">
+                        <h3>Uchwała nr 2 / 2026</h3>
+                        <a href="pdf/uchwala2-2026.pdf" class="pdf-btn" target="_blank">Otwórz PDF</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="pdf-card">
-                <img src="img/pdf-icon.png">
-                <h3>Uchwała nr 2 / 2026</h3>
-                <a class="pdf-btn" href="pdf/uchwala2-2026.pdf" target="_blank">Otwórz PDF</a>
-            </div>
+            <div id="uchwaly2025" class="tab-content">
+                <div class="pdf-grid">
+                    <div class="pdf-card">
+                        <img src="img/pdf-icon.png">
+                        <h3>Uchwała nr 1 / 2025</h3>
+                        <a href="pdf/uchwala1-2025.pdf" class="pdf-btn" target="_blank">Otwórz PDF</a>
+                    </div>
 
-        </div>
-
-    </div>
-
-    <!-- 2025 -->
-    <div id="uchwaly2025" class="tab-content">
-
-        <div class="pdf-grid">
-
-            <div class="pdf-card">
-                <img src="img/pdf-icon.png">
-                <h3>Uchwała nr 1 / 2025</h3>
-                <a class="pdf-btn" href="pdf/uchwala1-2025.pdf" target="_blank">Otwórz PDF</a>
-            </div>
-
-            <div class="pdf-card">
-                <img src="img/pdf-icon.png">
-                <h3>Uchwała nr 2 / 2025</h3>
-                <a class="pdf-btn" href="pdf/uchwala2-2025.pdf" target="_blank">Otwórz PDF</a>
+                    <div class="pdf-card">
+                        <img src="img/pdf-icon.png">
+                        <h3>Uchwała nr 2 / 2025</h3>
+                        <a href="pdf/uchwala2-2025.pdf" class="pdf-btn" target="_blank">Otwórz PDF</a>
+                    </div>
+                </div>
             </div>
 
         </div>
 
     </div>
-
-</div>
-
-</div>
 </section>
 </div>
 
