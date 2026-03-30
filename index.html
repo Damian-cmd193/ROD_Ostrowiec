@@ -407,12 +407,41 @@ html {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
-    function toggleFAQ(el) {
+   <script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// FAQ
+function toggleFAQ(el) {
     document.querySelectorAll('.faq-item').forEach(item => {
         if(item !== el) item.classList.remove('active');
     });
     el.classList.toggle('active');
 }
+
+// Wszystko po załadowaniu strony
+window.addEventListener("DOMContentLoaded", () => {
+
+    // FOMO (bez błędu)
+    function updateFOMO() {
+        const el = document.getElementById("fomo");
+        if (!el) return; // 🔥 zabezpieczenie
+
+        const base = 3;
+        const hour = new Date().getHours();
+        let boost = (hour >= 18) ? 8 : 5;
+
+        const number = base + Math.floor(Math.random() * boost);
+        el.innerText = "🔥 " + number + " osób ogląda teraz";
+    }
+
+    updateFOMO();
+    setInterval(updateFOMO, 4000);
+});
+</script>
 </style>
 
 <script>
