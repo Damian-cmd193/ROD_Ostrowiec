@@ -1,52 +1,225 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROD im. Stefana Żeromskiego – Ostrowiec Świętokrzyski</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>ROD im. Stefana Żeromskiego – Ostrowiec Świętokrzyski</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* ————————————————————————————— */
+/*   PODSTAWOWE STYLE             */
+/* ————————————————————————————— */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f0e4;
+    color: #1e2e1e;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ————————————————————————————— */
+/*   MENU                         */
+/* ————————————————————————————— */
+
+header {
+    background: #203c23;
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #f8f2dd;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ————————————————————————————— */
+/*   HERO                        */
+/* ————————————————————————————— */
+
+.hero {
+    text-align: center;
+}
+
+.hero-img {
+    width: 100%;
+    height: 300px;
+    background-image: url("img/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* ————————————————————————————— */
+/*   GRID — Aktualności           */
+/* ————————————————————————————— */
+
+.grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+    background: #e9e6d8;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ————————————————————————————— */
+/*   TABS — Galeria               */
+/* ————————————————————————————— */
+
+.tabs input { display:none; }
+
+.tabs label {
+    padding: 12px 20px;
+    background: #203c23;
+    color: white;
+    margin-right: 5px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+}
+
+.tab-content {
+    background: #dcd9c9;
+    padding: 20px;
+    border-radius: 0 10px 10px 10px;
+    display: none;
+}
+
+#tab2026:checked ~ #y2026,
+#tab2025:checked ~ #y2025,
+#tab2024:checked ~ #y2024 {
+    display: block;
+}
+
+.gallery-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ————————————————————————————— */
+/*   FOOTER                       */
+/* ————————————————————————————— */
+
+footer {
+    background: #203c23;
+    color: #f8f2dd;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.copy {
+    margin-top: 20px;
+    opacity: 0.6;
+}
+
+/* ————————————————————————————— */
+/*   PODSTRONY (JEDEN PLIK)       */
+/* ————————————————————————————— */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+</style>
+
+<script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+</script>
+
 </head>
 <body>
 
 <header>
     <nav>
         <ul>
-            <li><a href="#aktualnosci">Aktualności</a></li>
-            <li><a href="#dokumenty">Dokumenty</a></li>
-            <li><a href="#wydarzenia">Wydarzenia</a></li>
-            <li><a href="#oplata">Opłaty</a></li>
-            <li><a href="#galeria">Galeria</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a onclick="showPage('home')">Strona główna</a></li>
+            <li><a onclick="showPage('aktualnosci')">Aktualności</a></li>
+            <li><a onclick="showPage('dokumenty')">Dokumenty</a></li>
+            <li><a onclick="showPage('wydarzenia')">Wydarzenia</a></li>
+            <li><a onclick="showPage('oplaty')">Opłaty</a></li>
+            <li><a onclick="showPage('galeria')">Galeria</a></li>
+            <li><a onclick="showPage('kontakt')">Kontakt</a></li>
         </ul>
     </nav>
 </header>
 
+<!-- ————————————————————————————— -->
+<!--   STRONA GŁÓWNA              -->
+<!-- ————————————————————————————— -->
+
+<div id="home" class="page active">
+
 <section class="hero">
     <h1>Rodzinny Ogród Działkowy<br>im. Stefana Żeromskiego</h1>
     <h2>Ostrowiec Świętokrzyski</h2>
-    <p>ROD im. Stefana Żeromskiego to zielona przestrzeń wypoczynku, ogrodniczej pasji
-    oraz wspólnoty mieszkańców. Dbamy o naturę i o siebie nawzajem.</p>
+    <p>ROD im. Stefana Żeromskiego to zielona przestrzeń odpoczynku, ogrodniczej pasji oraz lokalnej społeczności.</p>
 
     <div class="hero-img"></div>
 </section>
 
-<section id="aktualnosci" class="section">
+<section>
     <h2>Aktualności</h2>
 
     <div class="grid">
-        <div class="card">
+        <div class="card" onclick="showPage('aktualnosci')">
             <img src="img/aktualnosci.jpg">
             <h3>Przegląd działek</h3>
             <p class="date">dd.mm.rrrr</p>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="showPage('oplaty')">
             <img src="img/oplata.jpg">
             <h3>Opłaty na rok 2024</h3>
             <p class="date">dd.mm.rrrr</p>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="showPage('wydarzenia')">
             <img src="img/wydarzenia.jpg">
             <h3>Wiosenny dzień społeczny</h3>
             <p class="date">dd.mm.rrrr</p>
@@ -54,34 +227,97 @@
     </div>
 </section>
 
-<section id="dokumenty" class="section">
-    <h2>Dokumenty</h2>
-    <div class="icon-card">
-        <img src="img/dokumenty.jpg">
-        <p>Regulaminy, uchwały, dokumenty ROD</p>
-    </div>
-</section>
+</div> <!-- KONIEC STRONY GŁÓWNEJ -->
 
-<section id="oplata" class="section">
-    <h2>Opłaty</h2>
-    <div class="icon-card">
-        <img src="img/oplata.jpg">
-        <p>Obowiązujące opłaty i numery kont</p>
-    </div>
-</section>
+<!-- ————————————————————————————— -->
+<!--   AKTUALNOŚCI                 -->
+<!-- ————————————————————————————— -->
 
-<section id="wydarzenia" class="section">
-    <h2>Wydarzenia</h2>
-    <div class="icon-card">
-        <img src="img/wydarzenia.jpg">
-        <p>Prace społeczne, zebrania, pikniki, ogłoszenia</p>
-    </div>
-</section>
+<div id="aktualnosci" class="page">
+    <section>
+        <h2>Aktualności</h2>
 
-<section id="galeria" class="section">
+        <div class="grid">
+            <div class="card">
+                <img src="img/aktualnosci.jpg">
+                <h3>Przegląd działek</h3>
+                <p class="date">dd.mm.rrrr</p>
+            </div>
+
+            <div class="card">
+                <img src="img/oplata.jpg">
+                <h3>Opłaty na rok 2024</h3>
+                <p class="date">dd.mm.rrrr</p>
+            </div>
+
+            <div class="card">
+                <img src="img/wydarzenia.jpg">
+                <h3>Wiosenny dzień społeczny</h3>
+                <p class="date">dd.mm.rrrr</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ————————————————————————————— -->
+<!--   DOKUMENTY                   -->
+<!-- ————————————————————————————— -->
+
+<div id="dokumenty" class="page">
+    <section>
+        <h2>Dokumenty</h2>
+
+        <ul>
+            <li>Regulamin ROD (PDF)</li>
+            <li>Uchwały zarządu</li>
+            <li>Cennik opłat</li>
+            <li>Procedury i wnioski</li>
+        </ul>
+    </section>
+</div>
+
+<!-- ————————————————————————————— -->
+<!--   OPŁATY                      -->
+<!-- ————————————————————————————— -->
+
+<div id="oplaty" class="page">
+    <section>
+        <h2>Opłaty 2024</h2>
+
+        <p>🔹 Opłata ogrodowa: …</p>
+        <p>🔹 Woda: …</p>
+        <p>🔹 Energia elektryczna: …</p>
+
+        <h3>Numer konta</h3>
+        <p>XX XXXX XXXX XXXX XXXX XXXX XXXX</p>
+    </section>
+</div>
+
+<!-- ————————————————————————————— -->
+<!--   WYDARZENIA                  -->
+<!-- ————————————————————————————— -->
+
+<div id="wydarzenia" class="page">
+    <section>
+        <h2>Wydarzenia</h2>
+
+        <p>• Walne zebranie – dd.mm.rrrr</p>
+        <p>• Prace społeczne – dd.mm.rrrr</p>
+        <p>• Piknik ogrodowy – dd.mm.rrrr</p>
+    </section>
+</div>
+
+<!-- ————————————————————————————— -->
+<!--   GALERIA                      -->
+<!-- ————————————————————————————— -->
+
+<div id="galeria" class="page">
+
+<section>
     <h2>Galeria</h2>
 
     <div class="tabs">
+
         <input type="radio" name="tab" id="tab2026" checked>
         <label for="tab2026">2026</label>
 
@@ -91,34 +327,50 @@
         <input type="radio" name="tab" id="tab2024">
         <label for="tab2024">2024</label>
 
-        <div class="tab-content" id="content2026">
-            <img src="img/galeria2026.jpg">
+        <div id="y2026" class="tab-content">
+            <img src="img/galeria2026.jpg" class="gallery-img">
         </div>
 
-        <div class="tab-content" id="content2025">
-            <img src="img/galeria2025.jpg">
+        <div id="y2025" class="tab-content">
+            <img src="img/galeria2025.jpg" class="gallery-img">
         </div>
 
-        <div class="tab-content" id="content2024">
-            <img src="img/galeria2024.jpg">
+        <div id="y2024" class="tab-content">
+            <img src="img/galeria2024.jpg" class="gallery-img">
         </div>
+
     </div>
 </section>
 
-<footer id="kontakt">
-    <h2>Kontakt</h2>
+</div>
 
-    <img src="img/kontakt.jpg" class="footer-icon">
+<!-- ————————————————————————————— -->
+<!--   KONTAKT                      -->
+<!-- ————————————————————————————— -->
 
-    <p><strong>Zarząd ROD im. Stefana Żeromskiego</strong><br>Ostrowiec Świętokrzyski</p>
+<div id="kontakt" class="page">
+<section>
+<h2>Kontakt</h2>
 
-    <p>
-        📞 Telefon: (wpisać)<br>
-        ✉️ E-mail: (wpisać)<br>
-        🏡 Adres: (wpisać)<br>
-        🕒 Dyżury zarządu: (wpisać)
-    </p>
+<img src="img/kontakt.jpg" class="gallery-img" style="max-width:300px;">
 
+<p><strong>Zarząd ROD im. Stefana Żeromskiego</strong></p>
+
+<p>
+📞 Telefon: …<br>
+✉️ Email: …<br>
+📍 Adres: …<br>
+🕒 Dyżury: …
+</p>
+
+</section>
+</div>
+
+<!-- ————————————————————————————— -->
+<!--   STOPKA                       -->
+<!-- ————————————————————————————— -->
+
+<footer>
     <p class="copy">© 2026 ROD im. Stefana Żeromskiego</p>
 </footer>
 
