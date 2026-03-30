@@ -290,7 +290,7 @@ function showPage(id) {
             <li><a onclick="showPage('home')">Strona główna</a></li>
             <li><a onclick="showPage('aktualnosci')">Aktualności</a></li>
             <li><a onclick="showPage('dokumenty')">Dokumenty</a></li>
-            <li><a onclick="showPage('wydarzenia')">Uchwały ROD</a></li>
+           <li><a onclick="showPage('uchwaly')">Uchwały</a></li>
            <li><a onclick="showPage('wydarzenia')">Ogłoszenia</a></li>
             <li><a onclick="showPage('oplaty')">Opłaty</a></li>
             <li><a onclick="showPage('galeria')">Galeria</a></li>
@@ -333,13 +333,6 @@ function showPage(id) {
             <p>dd.mm.rrrr</p>
         </div>
     </div>
-</section>
-
-<section class="shortcuts">
-    <a class="button" onclick="showPage('dokumenty')">Dokumenty</a>
-    <a class="button" onclick="showPage('oplaty')">Opłaty i terminy</a>
-    <a class="button" onclick="showPage('galeria')">Galeria</a>
-    <a class="button" onclick="showPage('kontakt')">Dla nowych działkowców</a>
 </section>
 
 </div>
@@ -430,7 +423,63 @@ function showPage(id) {
 
 </section>
 </div>
+   
+<div id="uchwaly" class="page">
+<section>
+   <!-- ✅ Uchwały -->
+    <h2>Uchwały ROD</h2>
+    <div class="tabs">
 
+        <!-- Zakładka 2026 -->
+        <input type="radio" name="uchwaly_tab" id="uchw2026" checked>
+        <label for="uchw2026">2026</label>
+
+        <!-- Zakładka 2025 -->
+        <input type="radio" name="uchwaly_tab" id="uchw2025">
+        <label for="uchw2025">2025</label>
+
+        <!-- Treść 2026 -->
+        <div id="uchwaly2026" class="tab-content">
+            <div class="pdf-grid">
+
+                <div class="pdf-card">
+                    <img src="img/pdf-icon.png" alt="">
+                    <h3>Uchwała nr 1 / 2026</h3>
+                    <a class="pdf-btn" href="pdf/uchwala1-2026.pdf" target="_blank">Otwórz PDF</a>
+                </div>
+
+                <div class="pdf-card">
+                    <img src="img/pdf-icon.png" alt="">
+                    <h3>Uchwała nr 2 / 2026</h3>
+                    <a class="pdf-btn" href="pdf/uchwala2-2026.pdf" target="_blank">Otwórz PDF</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Treść 2025 -->
+        <div id="uchwaly2025" class="tab-content">
+            <div class="pdf-grid">
+
+                <div class="pdf-card">
+                    <img src="img/pdf-icon.png" alt="">
+                    <h3>Uchwała nr 1 / 2025</h3>
+                    <a class="pdf-btn" href="pdf/uchwala1-2025.pdf" target="_blank">Otwórz PDF</a>
+                </div>
+
+                <div class="pdf-card">
+                    <img src="img/pdf-icon.png" alt="">
+                    <h3>Uchwała nr 2 / 2025</h3>
+                    <a class="pdf-btn" href="pdf/uchwala2-2025.pdf" target="_blank">Otwórz PDF</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+</div>
 <!-- ✅ KONTAKT -->
 <div id="kontakt" class="page">
 <section>
