@@ -264,6 +264,61 @@ footer {
 .copy {
     opacity: 0.6;
 }
+   /* --- Animacje podstron SPA --- */
+.page {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.page.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Animacja tab-content (galeria + uchwały) --- */
+.tab-content {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Galeria */
+#tab2026:checked ~ #y2026,
+#tab2025:checked ~ #y2025,
+#tab2024:checked ~ #y2024 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Uchwały */
+#uchw2026:checked ~ #uchwaly2026,
+#uchw2025:checked ~ #uchwaly2025 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- Animacje kafelków PDF i aktualności --- */
+.pdf-card, .card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pdf-card:hover, .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 16px rgba(0,0,0,0.35);
+}
+
+/* --- Fade-in obrazków --- */
+img {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+img.loaded {
+    opacity: 1;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
 
 </style>
 
