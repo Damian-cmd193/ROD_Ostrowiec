@@ -377,6 +377,23 @@ function showPage(id) {
     document.getElementById(id).classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+    function updateFOMO() {
+    const base = 3;
+    const hour = new Date().getHours();
+
+    let boost = 0;
+
+    if (hour >= 8 && hour <= 18) boost = 5; // dzień
+    if (hour >= 18 && hour <= 22) boost = 8; // wieczór
+
+    const number = base + Math.floor(Math.random() * boost);
+
+    document.getElementById("fomo").innerText =
+        "🔥 " + number + " osób ogląda teraz";
+}
+
+updateFOMO();
+setInterval(updateFOMO, 4000);
 </script>
 
 </head>
