@@ -259,6 +259,27 @@ html { scroll-behavior: smooth; }
     color: var(--text-main);   /* kremowy */
     margin-bottom: 10px;
 }
+    /* Pod-zakładki w latach */
+.inner-tabs {
+    margin-top: 20px;
+}
+
+.inner-tabs label {
+    font-size: 15px;
+    padding: 8px 18px;
+}
+
+.inner-content {
+    margin-top: -5px;
+}
+
+/* Aktywacja pod-zakładek 2025 */
+#a2025:checked ~ #a2025_content,
+#d2025:checked ~ #d2025_content {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
 </style>
 
 <script>
