@@ -280,6 +280,25 @@ html { scroll-behavior: smooth; }
     opacity: 1;
     transform: scale(1);
 }
+/* ładny układ zdjęć */
+    .gallery-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-top: 20px;
+}
+
+.gallery-item {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
 </style>
 
 <script>
