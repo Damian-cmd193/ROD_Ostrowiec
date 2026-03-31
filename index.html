@@ -222,15 +222,14 @@ nav ul li a {
     font-weight: bold;
 }
 .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: 0.3s ease;
+    display: none;
     margin-top: 10px;
+    color: var(--text-muted);
 }
+
 .faq-item.active .faq-answer {
-    max-height: 200px;
-    opacity: 1;
+    display: block;
+}
 }
 .faq-question::after {
     content: "▼";
