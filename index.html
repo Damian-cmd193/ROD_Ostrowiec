@@ -316,24 +316,6 @@ html { scroll-behavior: smooth; }
 .gallery-item:hover {
     transform: scale(1.03);
 }
-    
-/* LIGHTBOX */
-#lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 16px;
-}
-
 /* ZDJĘCIE Tytułowe */
     .hero {
     text-align: center;
@@ -389,48 +371,6 @@ function toggleFAQ(el) {
     });
 
     // toggle
-    el.classList.toggle('active');
-
-    if (el.classList.contains('active')) {
-        answer.style.maxHeight = answer.scrollHeight + "px";
-    } else {
-        answer.style.maxHeight = null;
-    }
-}
-
-// FOMO
-function updateFOMO() {
-    const el = document.getElementById("fomo");
-    if (!el) return;
-    const base = 3;
-    const hour = new Date().getHours();
-    let boost = (hour >= 18) ? 8 : 5;
-    const number = base + Math.floor(Math.random() * boost);
-    el.innerText = "🔥 " + number + " osób ogląda teraz";
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-    updateFOMO();
-    setInterval(updateFOMO, 4000);
-});
-    <script>
-function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// FAQ toggle
-function toggleFAQ(el) {
-    const answer = el.querySelector(".faq-answer");
-
-    document.querySelectorAll('.faq-item').forEach(item => {
-        if(item !== el){
-            item.classList.remove('active');
-            item.querySelector(".faq-answer").style.maxHeight = null;
-        }
-    });
-
     el.classList.toggle('active');
 
     if (el.classList.contains('active')) {
@@ -576,7 +516,7 @@ window.addEventListener("DOMContentLoaded", () => {
         <a class="pdf-btn" href="images/ogłoszenia/zwierzęta domowe.pdf" target="_blank">Otwórz PDF</a>
     </div>
 </section>
-</div>
+</div
 <!-- Kontakt -->
     <div id="kontakt" class="page">
 <section>
@@ -734,8 +674,6 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
  </section>
 </div>    <!-- zamknięcie galerii -->
-    
-});
 <!-- FAQ -->
 <div id="faq" class="page">
 <section>
