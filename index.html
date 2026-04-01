@@ -410,22 +410,31 @@ window.addEventListener("DOMContentLoaded", () => {
     setInterval(updateFOMO, 4000);
 });
     
-    // LIGHTBOX
+// LIGHTBOX – stabilna wersja
 function openLightbox(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = src;
+    const lb = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+
+    lb.style.display = "flex";
+    img.src = src;
 }
+
 function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
 
-// klik w zdjęcia
 window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".gallery-item").forEach(img => {
-        img.addEventListener("click", () => {
+    const images = document.querySelectorAll(".gallery-item");
+
+    images.forEach(img => {
+        img.addEventListener("click", (e) => {
+            e.stopPropagation();
             openLightbox(img.src);
         });
     });
+
+    // zamykanie po kliknięciu tła
+    document.getElementById("lightbox").addEventListener("click", closeLightbox);
 });
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
