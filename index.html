@@ -413,6 +413,70 @@ window.addEventListener("DOMContentLoaded", () => {
     updateFOMO();
     setInterval(updateFOMO, 4000);
 });
+    <script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// FAQ toggle
+function toggleFAQ(el) {
+    const answer = el.querySelector(".faq-answer");
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+        if(item !== el){
+            item.classList.remove('active');
+            item.querySelector(".faq-answer").style.maxHeight = null;
+        }
+    });
+
+    el.classList.toggle('active');
+
+    if (el.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+        answer.style.maxHeight = null;
+    }
+}
+
+// FOMO
+function updateFOMO() {
+    const el = document.getElementById("fomo");
+    if (!el) return;
+    const base = 3;
+    const hour = new Date().getHours();
+    let boost = (hour >= 18) ? 8 : 5;
+    const number = base + Math.floor(Math.random() * boost);
+    el.innerText = "🔥 " + number + " osób ogląda teraz";
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    updateFOMO();
+    setInterval(updateFOMO, 4000);
+});
+
+
+// 🔥 TUTAJ WKLEJASZ LIGHTBOX
+
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".gallery-item").forEach(img => {
+        img.addEventListener("click", () => {
+            openLightbox(img.src);
+        });
+    });
+});
+
+</script>
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -694,25 +758,6 @@ window.addEventListener("DOMContentLoaded", () => {
 </div>    <!-- zamknięcie galerii -->
     
 });
-    // 🔥 TUTAJ WKLEJASZ LIGHTBOX
-
-function openLightbox(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = src;
-}
-
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".gallery-item").forEach(img => {
-        img.addEventListener("click", () => {
-            openLightbox(img.src);
-        });
-    });
-});
-
 <!-- FAQ -->
 <div id="faq" class="page">
 <section>
