@@ -414,10 +414,13 @@ window.addEventListener("DOMContentLoaded", () => {
     updateFOMO();
     setInterval(updateFOMO, 4000);
 });
-    /* ZDJĘCIE POD NAPISEM */
+    /* Stabilna wersja lighbox */
     function openLightbox(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = src;
+    const lb = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+
+    lb.style.display = "flex";
+    img.src = src;
 }
 
 function closeLightbox() {
