@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -340,8 +341,8 @@ html { scroll-behavior: smooth; }
 
 /* ZDJĘCIE POD NAPISEM */
 .hero-photo {
-    width: 90%;
-    max-width: 1000px;
+    width: 100%;
+    max-width: 1100px;
     margin: 30px auto 0;
     display: block;
     border-radius: 18px;
@@ -371,62 +372,68 @@ html { scroll-behavior: smooth; }
 </style>
 
 <script>
-<script>
-window.addEventListener("DOMContentLoaded", () => {
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-    // ===== FOMO =====
-    function updateFOMO() {
-        const el = document.getElementById("fomo");
-        if (!el) return;
-        const base = 3;
-        const hour = new Date().getHours();
-        let boost = (hour >= 18) ? 8 : 5;
-        const number = base + Math.floor(Math.random() * boost);
-        el.innerText = "🔥 " + number + " osób ogląda teraz";
+// FAQ toggle
+function toggleFAQ(el) {
+    const answer = el.querySelector(".faq-answer");
+
+    // zamknij inne
+    document.querySelectorAll('.faq-item').forEach(item => {
+        if(item !== el){
+            item.classList.remove('active');
+            item.querySelector(".faq-answer").style.maxHeight = null;
+        }
+    });
+
+    // toggle
+    el.classList.toggle('active');
+
+    if (el.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+        answer.style.maxHeight = null;
     }
+}
+
+// FOMO
+function updateFOMO() {
+    const el = document.getElementById("fomo");
+    if (!el) return;
+    const base = 3;
+    const hour = new Date().getHours();
+    let boost = (hour >= 18) ? 8 : 5;
+    const number = base + Math.floor(Math.random() * boost);
+    el.innerText = "🔥 " + number + " osób ogląda teraz";
+}
+
+window.addEventListener("DOMContentLoaded", () => {
     updateFOMO();
     setInterval(updateFOMO, 4000);
-
-    // ===== FAQ =====
-    function toggleFAQ(el) {
-        const answer = el.querySelector(".faq-answer");
-        document.querySelectorAll('.faq-item').forEach(item => {
-            if(item !== el){
-                item.classList.remove('active');
-                item.querySelector(".faq-answer").style.maxHeight = null;
-            }
-        });
-        el.classList.toggle('active');
-        if (el.classList.contains('active')) {
-            answer.style.maxHeight = answer.scrollHeight + "px";
-        } else {
-            answer.style.maxHeight = null;
-        }
-    }
-    document.querySelectorAll('.faq-item').forEach(item => {
-        item.addEventListener('click', () => toggleFAQ(item));
-    });
-
-    // ===== LIGHTBOX =====
-    const lightbox = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lightbox-img");
-
-    document.querySelectorAll(".gallery-item").forEach(img => {
-        img.addEventListener("click", () => {
-            lbImg.src = img.src;
-            lightbox.style.display = "flex";
-        });
-    });
-
-    // zamykanie ESC
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            lightbox.style.display = "none";
-        }
-    });
-
 });
-</script>
+    /* Stabilna wersja lighbox */
+    function openLightbox(src) {
+    const lb = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+
+    lb.style.display = "flex";
+    img.src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+    // Zamknięcie lightboxa przez Escape
+window.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        const lb = document.getElementById("lightbox");
+        lb.style.display = "none";
+    }
+});
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -634,6 +641,9 @@ window.addEventListener("DOMContentLoaded", () => {
     <input type="radio" id="tab2025" name="tab">
     <label for="tab2025">2025</label>
 
+    <input type="radio" id="tab2024" name="tab">
+    <label for="tab2024">2024</label>
+
     <!-- ===================== -->
     <!--  ZAWARTOŚĆ 2026       -->
     <!-- ===================== -->
@@ -693,47 +703,53 @@ window.addEventListener("DOMContentLoaded", () => {
         </div>
        
     </div>
- <!-- zamknięcie galerii -->
 
-    
+    <!-- ===================== -->
+    <!--  ZAWARTOŚĆ 2024       -->
+    <!-- ===================== -->
+    <div id="y2024" class="tab-content">
+        <img class="gallery-img" src="img/galeria2024.jpg">
+    </div>
+ </section>
+</div>    <!-- zamknięcie galerii -->
 <!-- FAQ -->
 <div id="faq" class="page">
 <section>
 <h2>Najczęściej zadawane pytania (FAQ)</h2>
 
-<div class="faq-item">
+<div class="faq-item" onclick="toggleFAQ(this)">
     <div class="faq-question">Jak zostać działkowcem?</div>
     <div class="faq-answer">
         Należy złożyć wniosek do zarządu ROD oraz uiścić opłatę wpisową.
     </div>
 </div>
 
-<div class="faq-item">
+<div class="faq-item" onclick="toggleFAQ(this)">
     <div class="faq-question">Ile wynoszą roczne opłaty?</div>
     <div class="faq-answer">
         Opłaty zależą od wielkości działki i uchwał zarządu. Szczegóły znajdziesz w zakładce „Opłaty”.
     </div>
 </div>
 
-<div class="faq-item">
+<div class="faq-item" onclick="toggleFAQ(this)">
     <div class="faq-question">Czy można mieszkać na działce?</div>
     <div class="faq-answer">
         Nie. Działka ROD służy wyłącznie do celów rekreacyjnych.
     </div>
 </div>
 
-<div class="faq-item">
+<div class="faq-item" onclick="toggleFAQ(this)">
     <div class="faq-question">Czy można mieć zwierzęta?</div>
     <div class="faq-answer">
         Tak, ale muszą być pod kontrolą właściciela i nie mogą przeszkadzać innym działkowcom.
     </div>
 </div>
+
+</section>
 </div>
- </section>
     <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img">
 </div>
-   
 </body>
 </html>
