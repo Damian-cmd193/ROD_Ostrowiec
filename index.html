@@ -348,9 +348,7 @@ html { scroll-behavior: smooth; }
     object-fit: cover;
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
-
 </style>
-
 <script>
 function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -395,6 +393,25 @@ window.addEventListener("DOMContentLoaded", () => {
     updateFOMO();
     setInterval(updateFOMO, 4000);
 });
+    
+    // LIGHTBOX
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+// klik w zdjęcia
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".gallery-item").forEach(img => {
+        img.addEventListener("click", () => {
+            openLightbox(img.src);
+        });
+    });
+});
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -435,8 +452,7 @@ window.addEventListener("DOMContentLoaded", () => {
         ROD im. Stefana Żeromskiego to zielona przestrzeń pasji,
         odpoczynku i wspólnoty działkowców.
     </p>
-
-    <img src="images/tytul/tytul1.jpg" alt="Rodzinny Ogród Działkowy" class="hero-photo">
+<img src="images/dzialki/dzialki1.jpg" class="gallery-item">
 </section>
     
 </div>
@@ -447,6 +463,7 @@ window.addEventListener("DOMContentLoaded", () => {
 <p>Tu dodasz treści aktualności.</p>
 </section>
 </div>
+    
 <!-- Dokumenty -->
 <div id="dokumenty" class="page">
 <section>
@@ -482,6 +499,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 </section>
 </div>
+    
 <!-- Ogłoszenia -->
 <div id="ogłoszenia" class="page">
     <section>
@@ -521,6 +539,7 @@ window.addEventListener("DOMContentLoaded", () => {
     </div>
 </section>
 </div>
+    
 <!-- Kontakt -->
     <div id="kontakt" class="page">
 <section>
@@ -546,6 +565,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 </section>
 </div>
+    
 <!-- Uchwały -->
 <div id="uchwaly" class="page">
 <section>
@@ -572,8 +592,10 @@ window.addEventListener("DOMContentLoaded", () => {
 </div>
 </section>
 </div>
+    
 <!-- Wydarzenia -->
 <div id="wydarzenia" class="page"><section><h2>Wydarzenia</h2><p>• Walne zebranie<br>• Prace społeczne<br>• Pikniki</p></section></div>
+    
 <!-- Opłaty -->
 <div id="oplaty" class="page"><section>
 <h2>Opłaty 2025</h2>
@@ -590,9 +612,9 @@ window.addEventListener("DOMContentLoaded", () => {
 <tr><td>Opłata na fundusz remontowy</td><td>30,00 zł</td></tr>
 </tbody>
 </table>
-
 </section>
 </div>
+    
 <!-- Galeria -->
 <div id="galeria" class="page">
 <section>
