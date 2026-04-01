@@ -369,26 +369,62 @@ html { scroll-behavior: smooth; }
     border-radius: 12px;
 }
 }
-    /* ————————————————————————————— */
-/*   RESPONSYWNE MENU MOBILNE       */
+ /* ————————————————————————————— */
+/* MOBILNE HAMBURGER MENU */
 /* ————————————————————————————— */
+.menu-toggle {
+    display: none; /* domyślnie ukryte na desktopie */
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--accent);
+    position: absolute;
+    right: 20px;
+    top: 18px;
+}
+
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;   /* pionowy układ przycisków */
-        gap: 12px;                /* mniejsze odstępy między linkami */
-        align-items: center;      /* wyśrodkowanie */
+    /* Pokaż hamburger na telefonach */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Menu w kolumnę, ale ukryte dopóki hamburger nieaktywny */
+    nav {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        background-color: var(--background); /* tło menu */
+        position: absolute;
+        top: 60px; /* pod nagłówkiem */
+        width: 100%;
+        left: 0;
         padding: 10px 0;
+        z-index: 100;
+    }
+
+    nav.active {
+        display: flex; /* pokazuje menu po kliknięciu hamburgera */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        padding: 0;
+        margin: 0;
     }
 
     nav ul li a {
-        font-size: 16px;          /* mniejsza czcionka na telefonach */
-        padding: 10px 15px;       /* większa strefa do kliknięcia palcem */
+        font-size: 16px;
+        padding: 10px 15px;
         text-align: center;
         display: block;
     }
 
     header {
-        padding: 10px 0;          /* mniejszy padding nagłówka */
+        padding: 10px 20px;
+        position: relative;
     }
 }
 </style>
@@ -773,5 +809,16 @@ window.addEventListener("keydown", function(e) {
 <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img">
 </div>
+    <script>
+const toggle = document.createElement('div');
+toggle.classList.add('menu-toggle');
+toggle.innerHTML = '&#9776;'; // ikona hamburgera ☰
+document.querySelector('header').appendChild(toggle);
+
+const nav = document.querySelector('nav');
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('active'); // rozwija / zwija menu
+});
+</script>
 </body>
 </html>
