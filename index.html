@@ -369,7 +369,7 @@ html { scroll-behavior: smooth; }
     border-radius: 12px;
 }
 }
- /* ————————————————————————————— */
+    /* ————————————————————————————— */
 /* MOBILNE HAMBURGER MENU */
 /* ————————————————————————————— */
 .menu-toggle {
@@ -384,14 +384,17 @@ html { scroll-behavior: smooth; }
 }
 
 @media (max-width: 768px) {
+
+    /* Pokaż hamburger na telefonach */
     .menu-toggle {
         display: block;
     }
 
+    /* Nawigacja mobilna */
     nav {
         position: fixed;
         top: 0;
-        left: -100%;
+        left: -100%; /* ukryta poza ekranem */
         width: 75%;
         height: 100%;
         background: var(--bg-dark);
@@ -402,90 +405,43 @@ html { scroll-behavior: smooth; }
         z-index: 1000;
     }
 
+    /* Po kliknięciu hamburgera */
     nav.active {
         left: 0;
     }
 
+    /* Lista linków w kolumnę */
     nav ul {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        padding: 0;
+        padding: 0 20px;
         margin: 0;
-        align-items: flex-start; /* lewa strona */
-        padding-left: 20px;
+        align-items: flex-start;
     }
 
+    /* Linki menu */
     nav ul li a {
-        width: 90%;
+        width: 100%;
         text-align: left;
-        padding: 10px;
+        padding: 12px 15px;
         background: var(--bg-light);
         border-radius: 8px;
         color: var(--text-main);
         text-decoration: none;
         display: block;
+        font-size: 16px;
+        transition: background 0.25s, color 0.25s;
     }
 
     nav ul li a:hover {
         background: var(--card);
         color: var(--accent);
     }
-}
-/* po kliknięciu hamburgera */
-nav.active {
-    left: 0;
-}
-    {
-    /* Pokaż hamburger na telefonach */
-    .menu-toggle {
-        display: block;
-    }
-nav ul li a {
-    background: var(--bg-light);   /* tło przycisku */
-    border-radius: 8px;
-    width: 90%;
-}
-
-nav ul li a:hover {
-    background: var(--card);
-    color: var(--accent);
-}
-    /* Menu w kolumnę, ale ukryte dopóki hamburger nieaktywny */
-    nav {
-        flex-direction: column;
-        gap: 12px;
-        background-color: var(--background); /* tło menu */
-        position: absolute;
-        top: 60px; /* pod nagłówkiem */
-        width: 100%;
-        left: 0;
-        padding: 10px 0;
-        z-index: 100;
-    }
-
-    nav.active {
-        display: flex; /* pokazuje menu po kliknięciu hamburgera */
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li a {
-        font-size: 16px;
-        padding: 10px 15px;
-        text-align: center;
-        display: block;
-    }
 
     header {
-        padding: 10px 20px;
         position: relative;
+        padding: 10px 20px;
     }
 }
 </style>
@@ -883,15 +839,25 @@ document.querySelectorAll('nav ul li a').forEach(link => {
 <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img">
 </div>
-    <script>
-const toggle = document.createElement('div');
-toggle.classList.add('menu-toggle');
-toggle.innerHTML = '&#9776;'; // ikona hamburgera ☰
-document.querySelector('header').appendChild(toggle);
+    
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Tworzymy ikonę hamburgera
+    const toggle = document.createElement('div');
+    toggle.classList.add('menu-toggle');
+    toggle.innerHTML = '&#9776;'; // ☰
 
-const nav = document.querySelector('nav');
-toggle.addEventListener('click', () => {
-    nav.classList.toggle('active'); // rozwija / zwija menu
+    // Dodajemy hamburger do nagłówka
+    const header = document.querySelector('header');
+    header.appendChild(toggle);
+
+    // Pobieramy nawigację
+    const nav = document.querySelector('nav');
+
+    // Obsługa kliknięcia: rozwija/zwija menu
+    toggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
 });
 </script>
 </body>
