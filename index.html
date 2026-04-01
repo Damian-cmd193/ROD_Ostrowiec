@@ -843,8 +843,6 @@ document.querySelectorAll('nav ul li a').forEach(link => {
   <script>
 document.addEventListener('DOMContentLoaded', () => {
     // Tworzymy ikonę hamburgera
-   <script>
-document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.createElement('div');
     toggle.classList.add('menu-toggle');
     toggle.innerHTML = '&#9776;'; // ☰
@@ -854,18 +852,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nav = document.querySelector('nav');
 
+    // Kliknięcie hamburgera rozwija/zwija menu
     toggle.addEventListener('click', () => {
         nav.classList.toggle('active');
     });
 
+    // Kliknięcie w link menu zawsze chowa menu
     const navLinks = nav.querySelectorAll('a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            nav.classList.remove('active'); // chowamy menu po kliknięciu
+            nav.classList.remove('active');
         });
     });
 });
-</script>
 </script>
 </body>
 </html>
