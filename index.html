@@ -426,6 +426,13 @@ window.addEventListener("DOMContentLoaded", () => {
 function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
+    // Zamknięcie lightboxa przez Escape
+window.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        const lb = document.getElementById("lightbox");
+        lb.style.display = "none";
+    }
+});
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
