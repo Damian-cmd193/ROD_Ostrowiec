@@ -383,12 +383,39 @@ html { scroll-behavior: smooth; }
     top: 18px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) 
+    nav {
+    position: fixed;
+    top: 0;
+    left: -100%;              /* ukryte poza ekranem */
+    width: 75%;               /* szerokość menu */
+    height: 100%;
+    background: var(--bg-dark);
+    flex-direction: column;
+    padding-top: 70px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+/* po kliknięciu hamburgera */
+nav.active {
+    left: 0;
+}
+    {
     /* Pokaż hamburger na telefonach */
     .menu-toggle {
         display: block;
     }
+nav ul li a {
+    background: var(--bg-light);   /* tło przycisku */
+    border-radius: 8px;
+    width: 90%;
+}
 
+nav ul li a:hover {
+    background: var(--card);
+    color: var(--accent);
+}
     /* Menu w kolumnę, ale ukryte dopóki hamburger nieaktywny */
     nav {
         display: none;
@@ -491,6 +518,12 @@ window.addEventListener("keydown", function(e) {
         const lb = document.getElementById("lightbox");
         lb.style.display = "none";
     }
+});
+    // zamykanie menu po kliknięciu w link
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('active');
+    });
 });
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
