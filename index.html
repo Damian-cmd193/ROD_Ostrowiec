@@ -399,7 +399,6 @@ function openLightbox(src) {
     document.getElementById("lightbox").style.display = "flex";
     document.getElementById("lightbox-img").src = src;
 }
-
 function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
@@ -673,9 +672,9 @@ window.addEventListener("DOMContentLoaded", () => {
             <div id="d2025_content" class="tab-content inner-content">
     <div class="gallery-grid">
 
-        <img src="images/dzialki/dzialki1.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki2.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki3.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki1.jpg" onclick="openLightbox(this.src)">
+        <img src="images/dzialki/dzialki2.jpg" onclick="openLightbox(this.src)">
+        <img src="images/dzialki/dzialki3.jpg" onclick="openLightbox(this.src)">
         <img src="images/dzialki/dzialki4.jpg" class="gallery-item">
         <img src="images/dzialki/dzialki5.jpg" class="gallery-item">
         <img src="images/dzialki/dzialki6.jpg" class="gallery-item">
@@ -732,7 +731,10 @@ window.addEventListener("DOMContentLoaded", () => {
         Tak, ale muszą być pod kontrolą właściciela i nie mogą przeszkadzać innym działkowcom.
     </div>
 </div>
-
+    <!-- LightBox -->
+    <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
 </section>
 </div>  
 </body>
