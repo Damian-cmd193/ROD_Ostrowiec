@@ -348,18 +348,15 @@ html { scroll-behavior: smooth; }
     object-fit: cover;
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
-    /* Lightbox*/
-window.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelectorAll(".gallery-item");
 
-    images.forEach(img => {
-        img.addEventListener("click", () => {
-            openLightbox(img.src);
-        });
-    });
+</style>
 
-    document.getElementById("lightbox").addEventListener("click", closeLightbox);
-});
+<script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 // FAQ toggle
 function toggleFAQ(el) {
@@ -398,19 +395,6 @@ window.addEventListener("DOMContentLoaded", () => {
     updateFOMO();
     setInterval(updateFOMO, 4000);
 });
-    
-// LIGHTBOX – stabilna wersja
-function openLightbox(src) {
-    const lb = document.getElementById("lightbox");
-    const img = document.getElementById("lightbox-img");
-
-    lb.style.display = "flex";
-    img.src = src;
-}
-
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-}
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -451,9 +435,10 @@ function closeLightbox() {
         ROD im. Stefana Żeromskiego to zielona przestrzeń pasji,
         odpoczynku i wspólnoty działkowców.
     </p>
-<img src="images/tytul/tytul1.jpg" class="hero-photo">
+
+    <img src="images/tytul/tytul1.jpg" alt="Rodzinny Ogród Działkowy" class="hero-photo">
 </section>
-    
+``
 </div>
 
 <div id="aktualnosci" class="page">
@@ -462,43 +447,37 @@ function closeLightbox() {
 <p>Tu dodasz treści aktualności.</p>
 </section>
 </div>
-    
 <!-- Dokumenty -->
 <div id="dokumenty" class="page">
 <section>
 <h2>Dokumenty</h2>
-
 <div class="pdf-grid">
-
     <div class="pdf-card">
-        <i class="fa-solid fa-file-pdf pdf-icon"></i>
-        <h3>Regulamin ROD</h3>
-        <a class="pdf-btn" href="pdf/Regulamin.pdf" target="_blank">Otwórz PDF</a>
-    </div>
-
-    <div class="pdf-card">
-        <i class="fa-solid fa-file-pdf pdf-icon"></i>
-        <h3>Statut ROD</h3>
-        <a class="pdf-btn" href="pdf/Statut.pdf" target="_blank">Otwórz PDF</a>
-    </div>
-
-    <div class="pdf-card">
-        <i class="fa-solid fa-file-pdf pdf-icon"></i>
-        <h3>Ustawa o ROD</h3>
-        <a class="pdf-btn" href="pdf/USTAWA o ROD.pdf" target="_blank">Otwórz PDF</a>
-    </div>
-
-    <div class="pdf-card">
-        <i class="fa-solid fa-file-pdf pdf-icon"></i>
-        <h3>Ustawa o ochronie przyrody</h3>
-        <a class="pdf-btn" href="pdf/Ustawa o ochronie przyrody.pdf" target="_blank">Otwórz PDF</a>
-    </div>
-
+    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+    <h3>Regulamin ROD</h3>
+    <a class="pdf-btn" href="pdf/Regulamin.pdf" target="_blank">Otwórz PDF</a>
 </div>
-
+<div class="pdf-grid">
+    <div class="pdf-card">
+    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+    <h3>Statut ROD</h3>
+    <a class="pdf-btn" href="pdf/Statut.pdf" target="_blank">Otwórz PDF</a>
+</div>
+    <div class="pdf-grid">
+    <div class="pdf-card">
+    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+    <h3>Ustawa o ROD</h3>
+    <a class="pdf-btn" href="pdf/USTAWA o ROD.pdf" target="_blank">Otwórz PDF</a>
+</div>
+     <div class="pdf-grid">
+    <div class="pdf-card">
+    <i class="fa-solid fa-file-pdf pdf-icon"></i>
+    <h3>Ustawa o ochronie przyrody</h3>
+    <a class="pdf-btn" href="pdf/Ustawa o ochronie przyrody.pdf" target="_blank">Otwórz PDF</a>
+</div>
+</div>
 </section>
 </div>
-    
 <!-- Ogłoszenia -->
 <div id="ogłoszenia" class="page">
     <section>
@@ -537,8 +516,7 @@ function closeLightbox() {
         <a class="pdf-btn" href="images/ogłoszenia/zwierzęta domowe.pdf" target="_blank">Otwórz PDF</a>
     </div>
 </section>
-</div>
-    
+</div
 <!-- Kontakt -->
     <div id="kontakt" class="page">
 <section>
@@ -564,7 +542,6 @@ function closeLightbox() {
 
 </section>
 </div>
-    
 <!-- Uchwały -->
 <div id="uchwaly" class="page">
 <section>
@@ -591,10 +568,8 @@ function closeLightbox() {
 </div>
 </section>
 </div>
-    
 <!-- Wydarzenia -->
 <div id="wydarzenia" class="page"><section><h2>Wydarzenia</h2><p>• Walne zebranie<br>• Prace społeczne<br>• Pikniki</p></section></div>
-    
 <!-- Opłaty -->
 <div id="oplaty" class="page"><section>
 <h2>Opłaty 2025</h2>
@@ -611,9 +586,9 @@ function closeLightbox() {
 <tr><td>Opłata na fundusz remontowy</td><td>30,00 zł</td></tr>
 </tbody>
 </table>
+
 </section>
 </div>
-    
 <!-- Galeria -->
 <div id="galeria" class="page">
 <section>
@@ -672,19 +647,19 @@ function closeLightbox() {
             <div id="d2025_content" class="tab-content inner-content">
     <div class="gallery-grid">
 
-        <img src="images/dzialki/dzialki1.jpg" onclick="openLightbox(this.src)">
-        <img src="images/dzialki/dzialki2.jpg" onclick="openLightbox(this.src)">
-        <img src="images/dzialki/dzialki3.jpg" onclick="openLightbox(this.src)">
-        <img src="images/dzialki/dzialki4.jpg" onclick="openLightbox(this.src)">
-         <img src="images/dzialki/dzialki5.jpg" onclick="openLightbox(this.src)">
-        <img src="images/dzialki/dzialki6.jpg" onclick="openLightbox(this.src)">
-         <img src="images/dzialki/dzialki7.jpg" onclick="openLightbox(this.src)">
-         <img src="images/dzialki/dzialki8.jpg" onclick="openLightbox(this.src)">
-         <img src="images/dzialki/dzialki9.jpg" onclick="openLightbox(this.src)">
-         <img src="images/dzialki/dzialki10.jpg" onclick="openLightbox(this.src)">
-         <img src="images/dzialki/dzialki11.jpg" onclick="openLightbox(this.src)">
-         <img src="images/dzialki/dzialki12.jpg" onclick="openLightbox(this.src)">
-       <img src="images/dzialki/dzialki13.jpg" onclick="openLightbox(this.src)">
+        <img src="images/dzialki/dzialki1.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki2.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki3.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki4.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki5.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki6.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki7.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki8.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki9.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki10.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki11.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki12.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki13.jpg" class="gallery-item">
     </div>
 </div>
         </div>
@@ -733,11 +708,4 @@ function closeLightbox() {
 </div>
 
 </section>
-</div>  
-    <!-- LIGHTBOX GLOBALNY -->
-<div id="lightbox">
-    <img id="lightbox-img">
 </div>
-</body>
-</html>
-
