@@ -317,7 +317,7 @@ html { scroll-behavior: smooth; }
     transform: scale(1.03);
 }
     
-* LIGHTBOX */
+/* LIGHTBOX */
 #lightbox {
     position: fixed;
     inset: 0;
@@ -534,7 +534,7 @@ window.addEventListener("DOMContentLoaded", () => {
         <a class="pdf-btn" href="images/ogłoszenia/zwierzęta domowe.pdf" target="_blank">Otwórz PDF</a>
     </div>
 </section>
-</div
+</div>
 <!-- Kontakt -->
     <div id="kontakt" class="page">
 <section>
@@ -628,7 +628,7 @@ window.addEventListener("DOMContentLoaded", () => {
     <!--  ZAWARTOŚĆ 2026       -->
     <!-- ===================== -->
     <div id="y2026" class="tab-content">
-        <img class="gallery-img" src="img/galeria2026.jpg">
+        <img class="gallery-img gallery-item" src="img/galeria2026.jpg">
     </div>
 
     <!-- ===================== -->
@@ -693,10 +693,25 @@ window.addEventListener("DOMContentLoaded", () => {
  </section>
 </div>    <!-- zamknięcie galerii -->
     
-<!-- LIGHTBOX -->
-<div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="">
-</div>
+});
+    // 🔥 TUTAJ WKLEJASZ LIGHTBOX
+
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".gallery-item").forEach(img => {
+        img.addEventListener("click", () => {
+            openLightbox(img.src);
+        });
+    });
+});
 
 <!-- FAQ -->
 <div id="faq" class="page">
