@@ -369,6 +369,28 @@ html { scroll-behavior: smooth; }
     border-radius: 12px;
 }
 }
+    /* ————————————————————————————— */
+/*   RESPONSYWNE MENU MOBILNE       */
+/* ————————————————————————————— */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;   /* pionowy układ przycisków */
+        gap: 12px;                /* mniejsze odstępy między linkami */
+        align-items: center;      /* wyśrodkowanie */
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 16px;          /* mniejsza czcionka na telefonach */
+        padding: 10px 15px;       /* większa strefa do kliknięcia palcem */
+        text-align: center;
+        display: block;
+    }
+
+    header {
+        padding: 10px 0;          /* mniejszy padding nagłówka */
+    }
+}
 </style>
 
 <script>
