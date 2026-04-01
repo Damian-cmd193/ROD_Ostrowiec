@@ -384,6 +384,9 @@ html { scroll-behavior: smooth; }
 }
 
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
 
     nav {
         position: fixed;
@@ -392,10 +395,8 @@ html { scroll-behavior: smooth; }
         width: 75%;
         height: 100%;
         background: var(--bg-dark);
-
         display: flex;
         flex-direction: column;
-
         padding-top: 70px;
         transition: left 0.3s ease;
         z-index: 1000;
@@ -405,22 +406,30 @@ html { scroll-behavior: smooth; }
         left: 0;
     }
 
-    /* 🔥 TO DODAĆ */
     nav ul {
         display: flex;
         flex-direction: column;
         gap: 12px;
         padding: 0;
         margin: 0;
-        align-items: center;
+        align-items: flex-start; /* lewa strona */
+        padding-left: 20px;
     }
 
     nav ul li a {
         width: 90%;
-        text-align: center;
+        text-align: left;
         padding: 10px;
         background: var(--bg-light);
         border-radius: 8px;
+        color: var(--text-main);
+        text-decoration: none;
+        display: block;
+    }
+
+    nav ul li a:hover {
+        background: var(--card);
+        color: var(--accent);
     }
 }
 /* po kliknięciu hamburgera */
@@ -545,11 +554,18 @@ window.addEventListener("keydown", function(e) {
     }
 });
     // zamykanie menu po kliknięciu w link
+const nav = document.querySelector('nav');
+const toggle = document.querySelector('.menu-toggle');
+
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+});
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
         nav.classList.remove('active');
     });
 });
+    
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
