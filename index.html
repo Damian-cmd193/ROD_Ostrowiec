@@ -422,20 +422,6 @@ function openLightbox(src) {
 function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
-
-window.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelectorAll(".gallery-item");
-
-    images.forEach(img => {
-        img.addEventListener("click", (e) => {
-            e.stopPropagation();
-            openLightbox(img.src);
-        });
-    });
-
-    // zamykanie po kliknięciu tła
-    document.getElementById("lightbox").addEventListener("click", closeLightbox);
-});
 </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -700,16 +686,16 @@ window.addEventListener("DOMContentLoaded", () => {
         <img src="images/dzialki/dzialki1.jpg" onclick="openLightbox(this.src)">
         <img src="images/dzialki/dzialki2.jpg" onclick="openLightbox(this.src)">
         <img src="images/dzialki/dzialki3.jpg" onclick="openLightbox(this.src)">
-        <img src="images/dzialki/dzialki4.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki5.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki6.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki7.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki8.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki9.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki10.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki11.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki12.jpg" class="gallery-item">
-        <img src="images/dzialki/dzialki13.jpg" class="gallery-item">
+        <img src="images/dzialki/dzialki4.jpg" onclick="openLightbox(this.src)">
+         <img src="images/dzialki/dzialki5.jpg" onclick="openLightbox(this.src)">
+        <img src="images/dzialki/dzialki6.jpg" onclick="openLightbox(this.src)">
+         <img src="images/dzialki/dzialki7.jpg" onclick="openLightbox(this.src)">
+         <img src="images/dzialki/dzialki8.jpg" onclick="openLightbox(this.src)">
+         <img src="images/dzialki/dzialki9.jpg" onclick="openLightbox(this.src)">
+         <img src="images/dzialki/dzialki10.jpg" onclick="openLightbox(this.src)">
+         <img src="images/dzialki/dzialki11.jpg" onclick="openLightbox(this.src)">
+         <img src="images/dzialki/dzialki12.jpg" onclick="openLightbox(this.src)">
+       <img src="images/dzialki/dzialki13.jpg" onclick="openLightbox(this.src)">
     </div>
 </div>
         </div>
