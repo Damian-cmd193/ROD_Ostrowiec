@@ -424,6 +424,13 @@ html { scroll-behavior: smooth; }
     /* FAQ */
     .faq-question { font-size: 15px; }
 }
+
+/* Styl nagłówka kafelków na stronie głównej */
+.home-menu h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
 </style>
 
 <script>
@@ -530,6 +537,18 @@ window.addEventListener("keydown", function(e) {
 <!-- STRONY -->
 <div id="home" class="page active">
 <section class="hero">
+    <section class="home-menu">
+    <h2>Przejdź do sekcji</h2>
+    <div class="grid">
+        <div class="card" onclick="showPage('aktualnosci')">Aktualności</div>
+        <div class="card" onclick="showPage('dokumenty')">Dokumenty</div>
+        <div class="card" onclick="showPage('uchwaly')">Uchwały</div>
+        <div class="card" onclick="showPage('oplaty')">Opłaty</div>
+        <div class="card" onclick="showPage('galeria')">Galeria</div>
+        <div class="card" onclick="showPage('kontakt')">Kontakt</div>
+        <div class="card" onclick="showPage('faq')">FAQ</div>
+    </div>
+</section>
     <h1>
         Rodzinny Ogród Działkowy<br>
         im. Stefana Żeromskiego
