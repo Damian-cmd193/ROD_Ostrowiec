@@ -316,6 +316,24 @@ html { scroll-behavior: smooth; }
 .gallery-item:hover {
     transform: scale(1.03);
 }
+    
+* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 16px;
+}
+
 /* ZDJĘCIE Tytułowe */
     .hero {
     text-align: center;
