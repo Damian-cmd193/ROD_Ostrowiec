@@ -369,83 +369,9 @@ html { scroll-behavior: smooth; }
     border-radius: 12px;
 }
 }
-    /* ————————————————————————————— */
-/* RESPONSYWNOŚĆ (SMARTFONY, TABLETY) */
-/* ————————————————————————————— */
-@media (max-width: 1024px) {
-    section { padding: 30px 16px; }
-    .hero h1 { font-size: 32px; }
-    .hero h2 { font-size: 20px; }
-    .hero p { font-size: 15px; max-width: 90%; }
-    .grid, .pdf-grid, .gallery-grid { gap: 18px; }
-}
-
-@media (max-width: 768px) {
-    /* Menu mobilne */
-    nav ul {
-        flex-direction: column;
-        display: none;
-        gap: 12px;
-        position: absolute;
-        background: var(--bg-dark);
-        width: 100%;
-        top: 60px;
-        left: 0;
-        padding: 12px 0;
-    }
-    nav.active ul { display: flex; }
-
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-        color: var(--text-main);
-        font-size: 28px;
-        position: absolute;
-        right: 20px;
-        top: 16px;
-    }
-
-    /* Hero */
-    .hero h1 { font-size: 28px; }
-    .hero h2 { font-size: 16px; }
-    .hero p { font-size: 14px; }
-
-    /* Kafelki / PDF / Galeria */
-    .grid, .pdf-grid, .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
-    .pdf-card, .card { padding: 10px; }
-
-    /* Tabela opłat */
-    .oplaty-table th, .oplaty-table td { padding: 10px; font-size: 13px; }
-
-    /* FAQ */
-    .faq-question { font-size: 15px; }
-}
-
-/* Styl nagłówka kafelków na stronie głównej */
-.home-menu h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--accent);
-}
 </style>
 
 <script>
-    // —————————————————————————————
-// HAMBURGER MENU MOBILNE
-// —————————————————————————————
-const nav = document.querySelector('nav');
-const toggle = document.createElement('div');
-toggle.classList.add('menu-toggle');
-toggle.innerHTML = '&#9776;'; // ikona ☰
-document.querySelector('header').appendChild(toggle);
-
-toggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-});
 function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
@@ -537,18 +463,6 @@ window.addEventListener("keydown", function(e) {
 <!-- STRONY -->
 <div id="home" class="page active">
 <section class="hero">
-    <section class="home-menu">
-    <h2>Przejdź do sekcji</h2>
-    <div class="grid">
-        <div class="card" onclick="showPage('aktualnosci')">Aktualności</div>
-        <div class="card" onclick="showPage('dokumenty')">Dokumenty</div>
-        <div class="card" onclick="showPage('uchwaly')">Uchwały</div>
-        <div class="card" onclick="showPage('oplaty')">Opłaty</div>
-        <div class="card" onclick="showPage('galeria')">Galeria</div>
-        <div class="card" onclick="showPage('kontakt')">Kontakt</div>
-        <div class="card" onclick="showPage('faq')">FAQ</div>
-    </div>
-</section>
     <h1>
         Rodzinny Ogród Działkowy<br>
         im. Stefana Żeromskiego
